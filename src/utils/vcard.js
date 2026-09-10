@@ -4,7 +4,7 @@ export const generateVCard = (data) => {
   const vcardLines = [
     "BEGIN:VCARD",
     "VERSION:3.0",
-    "N:A S;Mallikarjunappa;Adv.;;",
+    "N:A.S;Mallikarjunappa;ADV;;",
     `FN:${data.displayName}`,
     `ORG:${data.profession}`,
     `TITLE:${data.profession}`,
@@ -27,7 +27,7 @@ export const downloadVCard = (data) => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", "Adv_Mallikarjunappa_AS_Contact.vcf");
+    link.setAttribute("download", "ADV_Mallikarjunappa_AS_Contact.vcf");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

@@ -777,8 +777,8 @@
     gap: 1.5rem;
   }
   .portrait-frame {
-    margin: 0 auto 0.75rem;
-    width: 220px;
+    margin: 0 auto 0.85rem;
+    width: min(240px, 68vw);
   }
   .portrait-nav-btn {
     opacity: 0.9;
@@ -798,6 +798,8 @@
   }
   .advocate-header-meta {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
   .card-cta-group {
     grid-template-columns: 1fr;
@@ -820,13 +822,14 @@
   .brand-icon-wrapper {
     width: 34px;
     height: 34px;
+    flex-shrink: 0;
   }
   .brand-name {
     font-size: 0.825rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 160px;
+    max-width: 200px;
   }
   .brand-title {
     font-size: 0.65rem;
@@ -834,6 +837,7 @@
   .header-call-btn {
     padding: 0.45rem 0.75rem;
     font-size: 0.75rem;
+    flex-shrink: 0;
   }
   .header-actions {
     gap: 0.35rem;
@@ -842,7 +846,8 @@
     padding: 1.75rem 1rem 1.25rem;
   }
   .advocate-main-name {
-    font-size: 1.45rem;
+    font-size: clamp(1.4rem, 5.2vw, 1.75rem);
+    letter-spacing: 0.5px;
   }
   .advocate-profession-title {
     font-size: 1.05rem;
@@ -851,7 +856,7 @@
     font-size: 0.88rem;
   }
   .card-secondary-actions {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   .visiting-card-ribbon {
     font-size: 0.76rem;
@@ -861,7 +866,7 @@
 
 @media (max-width: 480px) {
   .portrait-frame {
-    width: 200px;
+    width: min(225px, 72vw);
   }
   .portrait-caption-pill {
     font-size: 0.68rem;
@@ -869,12 +874,18 @@
     top: 8px;
   }
   .portrait-badge {
-    font-size: 0.7rem;
-    padding: 0.28rem 0.7rem;
-    bottom: -10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.32rem 0.8rem;
+    bottom: -12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   }
   .visiting-card-frame {
     padding: 1.5rem 0.85rem 1.15rem;
+  }
+  .card-secondary-actions {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 }
 
@@ -1858,8 +1869,15 @@
 }
 
 @media (max-width: 768px) {
+  .app-layout {
+    padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+  }
   .mobile-sticky-bar {
     display: block;
+    padding-bottom: max(0.45rem, env(safe-area-inset-bottom, 0px));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background-color: rgba(12, 26, 44, 0.96);
   }
 }
 

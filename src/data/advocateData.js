@@ -1,10 +1,10 @@
-// Central Configuration for Adv. Mallikarjunappa A S
+// Central Configuration for ADV Mallikarjunappa.A.S
 // All professional details, contact numbers, and office information are maintained here for easy updating.
 
 export const advocateData = {
-  name: "ADV. MALLIKARJUNAPPA A S",
-  displayName: "Adv. Mallikarjunappa A S",
-  honorific: "Adv.",
+  name: "ADV MALLIKARJUNAPPA.A.S",
+  displayName: "ADV Mallikarjunappa.A.S",
+  honorific: "ADV",
   profession: "Advocate & Notary",
   experience: "25+ Years",
   experienceFull: "25+ Years of Professional Experience",
@@ -18,8 +18,8 @@ export const advocateData = {
     {
       id: "advocate",
       url: "./images/advocate-profile.jpg",
-      alt: "Adv. Mallikarjunappa A S - Advocate & Notary",
-      title: "Adv. Mallikarjunappa A S",
+      alt: "ADV Mallikarjunappa.A.S - Advocate & Notary",
+      title: "ADV Mallikarjunappa.A.S",
       caption: "Advocate & Notary"
     },
     {
@@ -40,11 +40,11 @@ export const advocateData = {
   
   about: {
     lead: "With over 25 years of active legal practice in Mysuru, I am dedicated to providing direct, honest, and steadfast legal representation for my clients.",
-    statement: "I am Adv. Mallikarjunappa A S, an Advocate and Notary practicing before the District Court, Mysuru. With a strong academic background in Commerce and Law (B.Com, LL.B.), I have spent more than two and a half decades in courtroom advocacy — representing clients across Civil matters, Criminal defense, Family disputes, and Property litigation.",
+    statement: "I am ADV Mallikarjunappa.A.S, an Advocate and Notary practicing before the District Court, Mysuru. With a strong academic background in Commerce and Law (B.Com, LL.B.), I have spent more than two and a half decades in courtroom advocacy — representing clients across Civil matters, Criminal defense, Family disputes, and Property litigation.",
     subStatement: "Alongside court practice, I run an authorized Notary chamber in Saraswathipuram for official affidavits, attestations, and legal agreements. When you reach out, you consult directly with me — ensuring personal attention, strict confidentiality, and seasoned counsel for your legal needs.",
   },
   
-  aboutSummary: "Adv. Mallikarjunappa A S is an Advocate and Notary with over 25 years of professional experience, providing personalized legal and notary services in Mysuru.",
+  aboutSummary: "ADV Mallikarjunappa.A.S is an Advocate and Notary with over 25 years of professional experience, providing personalized legal and notary services in Mysuru.",
   
   phones: {
     primary: "9980051736",
@@ -59,14 +59,14 @@ export const advocateData = {
       number: "9980051736",
       formatted: "+91 99800 51736",
       label: "Primary WhatsApp",
-      url: "https://wa.me/919980051736?text=Hello%20Adv.%20Mallikarjunappa%2C%20I%20would%20like%20to%20consult%20regarding%20a%20legal%2Fnotary%20matter.",
+      url: "https://wa.me/919980051736?text=Hello%20ADV%20Mallikarjunappa.A.S%2C%20I%20would%20like%20to%20consult%20regarding%20a%20legal%2Fnotary%20matter.",
       rawUrl: "https://wa.me/919980051736"
     },
     {
       number: "8073542848",
       formatted: "+91 80735 42848",
       label: "Direct WhatsApp",
-      url: "https://wa.me/918073542848?text=Hello%20Adv.%20Mallikarjunappa%2C%20I%20would%20like%20to%20consult%20regarding%20a%20legal%2Fnotary%20matter.",
+      url: "https://wa.me/918073542848?text=Hello%20ADV%20Mallikarjunappa.A.S%2C%20I%20would%20like%20to%20consult%20regarding%20a%20legal%2Fnotary%20matter.",
       rawUrl: "https://wa.me/918073542848"
     }
   ],
