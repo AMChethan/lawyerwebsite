@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background circle with deep navy -->
+  <circle cx="32" cy="32" r="30" fill="#0B1726" stroke="#C5A059" stroke-width="2"/>
+  
+  <!-- Scales of Justice in Antique Gold -->
+  <!-- Central pillar & top beam -->
+  <path d="M32 14V46" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M18 22H46" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Top decorative finial -->
+  <circle cx="32" cy="14" r="2.5" fill="#D4AF37"/>
+  <!-- Base -->
+  <path d="M24 46H40" stroke="#C5A059" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Left pan strings & pan -->
+  <path d="M18 22L12 32M18 22L24 32" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M10 32C10 35.5 14 36.5 18 36.5C22 36.5 26 35.5 26 32H10Z" fill="#C5A059"/>
+  
+  <!-- Right pan strings & pan -->
+  <path d="M46 22L40 32M46 22L52 32" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M38 32C38 35.5 42 36.5 46 36.5C50 36.5 54 35.5 54 32H38Z" fill="#C5A059"/>
+</svg>
