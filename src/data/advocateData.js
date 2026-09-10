@@ -11,27 +11,27 @@ export const advocateData = {
   qualification: "B.Com, LL.B.",
   court: "District Court, Mysuru",
   location: "Mysuru, Karnataka",
-  photoUrl: "/images/advocate-profile.jpg",
-  scalesImageUrl: "/images/scales-gavel-law.png",
-  lawGodImageUrl: "/images/law-god-justice.png",
+  photoUrl: "./images/advocate-profile.jpg",
+  scalesImageUrl: "./images/scales-gavel-law.png",
+  lawGodImageUrl: "./images/law-god-justice.png",
   photos: [
     {
       id: "advocate",
-      url: "/images/advocate-profile.jpg",
+      url: "./images/advocate-profile.jpg",
       alt: "Adv. Mallikarjunappa A S - Advocate & Notary",
       title: "Adv. Mallikarjunappa A S",
       caption: "Advocate & Notary"
     },
     {
       id: "law-god",
-      url: "/images/law-god-justice.png",
+      url: "./images/law-god-justice.png",
       alt: "Nyaya Devata - Law God & Sacred Emblem of Justice",
       title: "Nyaya Devata",
       caption: "Symbol of Law & Justice"
     },
     {
       id: "scales-gavel",
-      url: "/images/scales-gavel-law.png",
+      url: "./images/scales-gavel-law.png",
       alt: "Scales of Justice & Legal Gavel on Law Books",
       title: "Scales of Justice",
       caption: "Legal Integrity & Rule of Law"

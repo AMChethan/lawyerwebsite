@@ -1,22 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { MapPin, Clock, Navigation, Phone, Building, Calendar, ExternalLink } from 'lucide-react';
 import { advocateData } from '../data/advocateData';
 
 export const OfficeLocation = () => {
-  const [isOpenNow, setIsOpenNow] = useState(false);
-
-  useEffect(() => {
-    // Check if current time is within Morning (9:30 AM - 10:30 AM) or Evening (6:00 PM - 9:00 PM) and not Sunday
+  const [isOpenNow] = useState(() => {
     const now = new Date();
     const day = now.getDay(); // 0 is Sunday
     const hours = now.getHours() + now.getMinutes() / 60;
-
     const isMorningSession = hours >= 9.5 && hours <= 10.5;
     const isEveningSession = hours >= 18.0 && hours <= 21.0;
-    const isOfficeOpen = day !== 0 && (isMorningSession || isEveningSession);
-    
-    setIsOpenNow(isOfficeOpen);
-  }, []);
+    return day !== 0 && (isMorningSession || isEveningSession);
+  });
 
   return (
     <section className="office-section section-padding" id="office">

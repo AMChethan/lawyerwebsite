@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, UserCheck, CheckCircle2, QrCode, MapPin, Clock, ArrowUpRight } from 'lucide-react';
+import { Phone, UserCheck, CheckCircle2, QrCode, ArrowUpRight } from 'lucide-react';
 import { advocateData } from '../data/advocateData';
 import { downloadVCard } from '../utils/vcard';
 

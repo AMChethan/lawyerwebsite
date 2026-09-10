@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scale, BookOpen, Clock, Award, ShieldCheck, Shield } from 'lucide-react';
+import { Scale, Clock, ShieldCheck, Shield } from 'lucide-react';
 import { advocateData } from '../data/advocateData';
 
 export const AboutSection = () => {
@@ -74,13 +74,13 @@ export const AboutSection = () => {
             <div className="about-emblem-card">
               <div className="emblem-card-media">
                 <img 
-                  src={advocateData.scalesImageUrl || "/images/scales-gavel-law.png"} 
+                  src={advocateData.scalesImageUrl || "./images/scales-gavel-law.png"} 
                   alt="Scales of Justice and Gavel on Law Books" 
                   className="emblem-img"
                   loading="lazy"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "/images/scales-gavel-law.jpg";
+                    e.target.src = "./images/scales-gavel-law.jpg";
                   }}
                 />
                 <div className="emblem-media-overlay" aria-hidden="true"></div>

@@ -37,7 +37,7 @@ export const NotaryServices = () => {
         </div>
 
         <div className="notary-grid">
-          {advocateData.notaryServices.map((service, index) => (
+          {advocateData.notaryServices.map((service) => (
             <div key={service.id} className="notary-card">
               <div className="notary-icon-badge">
                 {getNotaryIcon(service.icon)}

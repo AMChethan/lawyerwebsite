@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Copy, Check, Share2, Download, Scale } from 'lucide-react';
+import { X, Copy, Check, Download, Scale } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 import { advocateData } from '../data/advocateData';
 import { downloadVCard } from '../utils/vcard';

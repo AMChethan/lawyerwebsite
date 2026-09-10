@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, Navigation, UserCheck, CheckCircle2, Shield, MapPin, Award } from 'lucide-react';
+import { Phone, Navigation, UserCheck, CheckCircle2, Shield, MapPin, Award } from 'lucide-react';
 import { advocateData } from '../data/advocateData';
 import { downloadVCard } from '../utils/vcard';
 
@@ -40,7 +40,7 @@ export const HeroVisitingCard = () => {
                       loading="eager"
                       onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = "/images/advocate-office-profile.jpg";
+                        e.target.src = "./images/advocate-office-profile.jpg";
                       }}
                     />
                     <div className="portrait-gradient-overlay" aria-hidden="true"></div>
