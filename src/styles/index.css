@@ -1,0 +1,243 @@
+/* ==========================================================================
+   DESIGN SYSTEM - ADV. MALLIKARJUNAPPA A S
+   Theme: Authority, Trust, Professionalism, Tradition, Premium Simplicity
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Legal & Court Inspired */
+  --navy-950: #07101B;
+  --navy-900: #0C1A2C;
+  --navy-850: #102138;
+  --navy-800: #162B47;
+  --navy-700: #1F3A5F;
+  --navy-600: #2C5282;
+
+  --burgundy-900: #340D15;
+  --burgundy-800: #4E1420;
+  --burgundy-700: #6D1F2E;
+
+  --gold-600: #967635;
+  --gold-500: #C5A059;
+  --gold-400: #D9B771;
+  --gold-300: #EBCE8F;
+  --gold-200: #F5E5C0;
+  --gold-100: #FAF3E3;
+  --gold-50:  #FDFBF5;
+
+  --ivory-50:  #FCFAF7;
+  --ivory-100: #F7F3EB;
+  --ivory-200: #EDE7DC;
+  --ivory-300: #DFD7C7;
+  --ivory-400: #CFC5B2;
+
+  --charcoal-950: #0F1722;
+  --charcoal-900: #1B2432;
+  --charcoal-800: #2C384B;
+  --charcoal-700: #475569;
+  --charcoal-600: #64748B;
+  --charcoal-500: #94A3B8;
+
+  --whatsapp-green: #25D366;
+  --whatsapp-dark: #128C7E;
+  --whatsapp-bg: #E8F8F0;
+
+  /* Typography */
+  --font-serif-display: 'Cinzel', Georgia, serif;
+  --font-serif-body: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(12, 26, 44, 0.06), 0 1px 2px rgba(12, 26, 44, 0.04);
+  --shadow-md: 0 4px 12px rgba(12, 26, 44, 0.08), 0 2px 4px rgba(12, 26, 44, 0.04);
+  --shadow-lg: 0 10px 25px -3px rgba(12, 26, 44, 0.12), 0 4px 6px -2px rgba(12, 26, 44, 0.05);
+  --shadow-xl: 0 20px 35px -5px rgba(12, 26, 44, 0.16), 0 8px 10px -4px rgba(12, 26, 44, 0.08);
+  --shadow-card-gold: 0 10px 30px -5px rgba(197, 160, 89, 0.15);
+
+  /* Borders & Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Container */
+  --container-max: 1080px;
+  --container-narrow: 840px;
+}
+
+/* CSS Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--ivory-50);
+  color: var(--charcoal-900);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  /* Extra bottom padding for mobile sticky action bar */
+  padding-bottom: 74px;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, a {
+  font-family: inherit;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif-display);
+  color: var(--navy-900);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+
+p {
+  margin-bottom: 0.75rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+}
+
+.section-padding {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
+}
+
+/* Section Header Component */
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  margin-bottom: 0.65rem;
+}
+
+.section-title {
+  display: block;
+  font-size: 2rem;
+  color: var(--navy-900);
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0.5rem auto 0;
+  width: 120px;
+}
+
+.section-divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--gold-400);
+}
+
+.section-divider-diamond {
+  width: 6px;
+  height: 6px;
+  background-color: var(--gold-500);
+  transform: rotate(45deg);
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--charcoal-700);
+  max-width: 620px;
+  margin: 0.75rem auto 0;
+  line-height: 1.5;
+}
+
+/* Accessible focus styling */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 3px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--gold-200);
+  color: var(--navy-950);
+}
