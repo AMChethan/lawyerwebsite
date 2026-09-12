@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Scale, Phone, QrCode, Menu, X, Clock, MapPin, MessageSquare } from 'lucide-react';
+import { Scale, Phone, QrCode, Menu, X, Clock, MapPin, MessageSquare, ChevronRight } from 'lucide-react';
 import { advocateData } from '../data/advocateData';
 
 export const Header = ({ onOpenQR }) => {
@@ -18,7 +18,6 @@ export const Header = ({ onOpenQR }) => {
     { label: 'About', href: '#about' },
     { label: 'Practice Areas', href: '#practice-areas' },
     { label: 'Notary Services', href: '#notary-services' },
-    { label: 'Credentials', href: '#professional-info' },
     { label: 'Chamber & Hours', href: '#office' },
     { label: 'Contact', href: '#contact' },
   ];
@@ -30,25 +29,20 @@ export const Header = ({ onOpenQR }) => {
         <div className="container top-bar-container">
           <div className="top-bar-left">
             <span className="top-bar-item">
-              <MapPin size={13} className="text-gold" />
-              <span>{advocateData.court}</span>
-            </span>
-            <span className="top-bar-separator">•</span>
-            <span className="top-bar-item">
-              <Clock size={13} className="text-gold" />
-              <span>Chamber Hours: <strong>9:30–10:30 AM</strong> & <strong>6:00–9:00 PM</strong></span>
+              <MapPin size={12} className="text-gold" />
+              <span>Advocate & Notary • District Court Mysore</span>
             </span>
           </div>
 
           <div className="top-bar-right">
+            <span className="top-bar-item">
+              <Clock size={12} className="text-gold" />
+              <span>Chamber: <strong>9:30–10:30 AM</strong> & <strong>6:00–9:00 PM</strong></span>
+            </span>
+            <span className="top-bar-separator">|</span>
             <a href={advocateData.phones.primaryTel} className="top-bar-phone">
               <Phone size={12} className="text-gold" />
-              <span>{advocateData.phones.primaryFormatted}</span>
-            </a>
-            <span className="top-bar-separator">|</span>
-            <a href={`tel:${advocateData.phones.secondary}`} className="top-bar-phone">
-              <Phone size={12} className="text-gold" />
-              <span>{advocateData.phones.secondaryFormatted}</span>
+              <span>+91 99800 51736</span>
             </a>
           </div>
         </div>
@@ -57,13 +51,14 @@ export const Header = ({ onOpenQR }) => {
       {/* Main Navigation Header */}
       <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
         <div className="container header-container">
+          {/* Brand Logo & Name */}
           <a href="#" className="header-brand" aria-label="ADV. Mallikarjunappa A S Homepage">
             <div className="brand-icon-wrapper">
-              <Scale className="brand-scale-icon" size={22} strokeWidth={2.2} />
+              <Scale className="brand-scale-icon" size={20} strokeWidth={2.2} />
             </div>
             <div className="brand-text">
               <span className="brand-name">{advocateData.displayName}</span>
-              <span className="brand-title">{advocateData.profession} • {advocateData.qualification}</span>
+              <span className="brand-title">{advocateData.profession} • 25+ Yrs Exp</span>
             </div>
           </a>
 
@@ -76,41 +71,29 @@ export const Header = ({ onOpenQR }) => {
             ))}
           </nav>
 
-          {/* Header Action Buttons */}
+          {/* Header Action Buttons (Neat & Refined) */}
           <div className="header-actions">
             <button 
               type="button" 
               onClick={onOpenQR} 
               className="qr-btn hide-on-mobile" 
-              title="View QR Visiting Card & Share"
+              title="View QR Visiting Card"
               aria-label="View QR Code"
             >
-              <QrCode size={17} />
-              <span className="qr-btn-text">QR Card</span>
+              <QrCode size={15} />
+              <span>QR Card</span>
             </button>
-
-            <a 
-              href={advocateData.whatsapp[0].url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="header-whatsapp-btn hide-on-mobile"
-              title="Chat on WhatsApp"
-              aria-label="Chat on WhatsApp"
-            >
-              <MessageSquare size={16} />
-              <span>WhatsApp</span>
-            </a>
 
             <a 
               href={advocateData.phones.primaryTel} 
               className="header-call-btn hide-on-mobile"
-              aria-label={`Call ${advocateData.phones.primaryFormatted}`}
+              aria-label={`Call ${advocateData.displayName}`}
             >
-              <Phone size={15} />
-              <span>Call Now</span>
+              <Phone size={14} />
+              <span>Call: 99800 51736</span>
             </a>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Toggle Button */}
             <button 
               type="button" 
               className="mobile-menu-toggle"
@@ -118,7 +101,7 @@ export const Header = ({ onOpenQR }) => {
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -128,20 +111,24 @@ export const Header = ({ onOpenQR }) => {
           <div className="mobile-nav-menu" id="mobile-navigation">
             <div className="container mobile-nav-container">
               <div className="mobile-hours-badge">
-                <Clock size={15} className="text-gold" />
+                <Clock size={14} className="text-gold" />
                 <span>Hours: 9:30–10:30 AM & 6:00–9:00 PM (Mon–Sat)</span>
               </div>
 
-              {navLinks.map((link) => (
-                <a 
-                  key={link.href} 
-                  href={link.href} 
-                  className="mobile-nav-link"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
+              <div className="mobile-nav-links-list">
+                {navLinks.map((link) => (
+                  <a 
+                    key={link.href} 
+                    href={link.href} 
+                    className="mobile-nav-link"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span>{link.label}</span>
+                    <ChevronRight size={16} className="mobile-link-arrow" />
+                  </a>
+                ))}
+              </div>
+              
               <div className="mobile-nav-divider"></div>
               
               <button 
@@ -152,7 +139,7 @@ export const Header = ({ onOpenQR }) => {
                   onOpenQR();
                 }}
               >
-                <QrCode size={18} />
+                <QrCode size={16} />
                 <span>Show QR Visiting Card</span>
               </button>
 
@@ -162,7 +149,7 @@ export const Header = ({ onOpenQR }) => {
                   className="mobile-nav-cta"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <Phone size={16} />
+                  <Phone size={15} />
                   <span>Call 9980051736</span>
                 </a>
                 <a 
@@ -172,7 +159,7 @@ export const Header = ({ onOpenQR }) => {
                   className="mobile-nav-cta cta-wa"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <MessageSquare size={16} />
+                  <MessageSquare size={15} />
                   <span>WhatsApp</span>
                 </a>
               </div>
