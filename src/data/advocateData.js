@@ -13,6 +13,7 @@ export const advocateData = {
   location: "Mysuru, Karnataka",
   photoUrl: `${import.meta.env.BASE_URL}images/advocate-profile.jpg`,
   courtPhotoUrl: `${import.meta.env.BASE_URL}images/mysore-district-court.jpg`,
+  courtBuildingPhotoUrl: `${import.meta.env.BASE_URL}images/mysore-district-court-building.jpg`,
   heroBgUrl: `${import.meta.env.BASE_URL}images/law_hero_bg.jpg`,
   pillarsBgUrl: `${import.meta.env.BASE_URL}images/court_pillars_bg.jpg`,
   scalesImageUrl: `${import.meta.env.BASE_URL}images/scales-gavel-law.png`,
@@ -147,6 +148,15 @@ export const advocateData = {
   notaryServicesFooterNote: "and all other authorized notary & legal document services",
   
   galleryItems: [
+    {
+      id: "law-courts-heritage",
+      title: "Law Courts Mysore (Heritage Complex)",
+      category: "Court Complex",
+      imageUrl: `${import.meta.env.BASE_URL}images/mysore-district-court-building.jpg`,
+      badge: "Law Courts Mysore",
+      caption: "The iconic Law Courts building in Mysuru with the official state emblem and Law Courts facade, landmark of legal proceedings.",
+      tags: ["Law Courts", "Mysuru", "Heritage Complex"]
+    },
     {
       id: "court-complex",
       title: "Court Complex, Malalavadi, Mysuru",

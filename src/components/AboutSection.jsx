@@ -71,27 +71,27 @@ export const AboutSection = () => {
 
           {/* Right Column: Court Complex Card + Law & Business Creed Plaque */}
           <div className="about-visual-col">
-            {/* Card 1: Court Complex, Malalavadi, Mysuru */}
+            {/* Card 1: Law Courts Mysore */}
             <div className="about-emblem-card">
               <div className="emblem-card-media">
                 <img 
-                  src={advocateData.courtPhotoUrl || "/images/mysore-district-court.jpg"} 
-                  alt="Court Complex, Malalavadi, Mysuru - District Court Mysore" 
+                  src={advocateData.courtBuildingPhotoUrl || advocateData.courtPhotoUrl || "/images/mysore-district-court-building.jpg"} 
+                  alt="Law Courts Mysore - District & Sessions Court, Mysuru" 
                   className="emblem-img"
                   loading="lazy"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "/images/scales-gavel-law.jpg";
+                    e.target.src = "/images/mysore-district-court.jpg";
                   }}
                 />
                 <div className="emblem-media-overlay" aria-hidden="true"></div>
                 <div className="emblem-media-badge">
                   <Landmark size={14} />
-                  <span>District Court Mysore</span>
+                  <span>Law Courts Mysore</span>
                 </div>
               </div>
               <div className="emblem-card-content">
-                <h3 className="emblem-card-title">Court Complex, Malalavadi, Mysuru</h3>
+                <h3 className="emblem-card-title">Law Courts Mysore</h3>
                 <p className="emblem-card-motto">
                   <em>"Justice, Equality & The Rule of Law — Defending Rights with Proven Experience."</em>
                 </p>
