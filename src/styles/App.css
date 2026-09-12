@@ -2487,32 +2487,19 @@
 
 .whatsapp-item-row {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.65rem;
   background-color: var(--ivory-100);
   padding: 0.85rem 1rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--ivory-300);
-  gap: 0.75rem;
-}
-
-@media (max-width: 600px) {
-  .whatsapp-item-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.65rem;
-    padding: 0.85rem;
-  }
-  .whatsapp-item-row .wa-action-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 0.65rem;
-  }
 }
 
 .wa-info {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .wa-label {
@@ -2521,12 +2508,21 @@
   color: var(--charcoal-600);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin-bottom: 0.15rem;
 }
 
 .wa-number {
-  font-size: 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: var(--navy-950);
+  white-space: nowrap;
+}
+
+.whatsapp-item-row .wa-action-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.825rem;
+  font-weight: 700;
 }
 
 /* Fast Consultation Form */
