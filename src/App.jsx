@@ -24,7 +24,7 @@ export function App() {
         {/* Hero Section / Digital Visiting Card */}
         <HeroVisitingCard />
 
-        {/* About Section - Brief, Authentic Summary */}
+        {/* About Section - Brief, Authentic Summary with Integrated Court & Chamber Visuals */}
         <AboutSection />
 
         {/* Practice Areas - Civil, Criminal, Family, Property */}

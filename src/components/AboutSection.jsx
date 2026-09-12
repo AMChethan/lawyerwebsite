@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scale, Clock, ShieldCheck, Shield } from 'lucide-react';
+import { Scale, Clock, Award, ShieldCheck, Landmark, Briefcase, FileCheck } from 'lucide-react';
 import { advocateData } from '../data/advocateData';
 
 export const AboutSection = () => {
@@ -10,7 +10,7 @@ export const AboutSection = () => {
           <span className="section-tag">
             <Scale size={14} /> Professional Profile
           </span>
-          <h2 className="section-title">About My Practice</h2>
+          <h2 className="section-title">About My Legal Practice</h2>
           <div className="section-divider">
             <div className="section-divider-line"></div>
             <div className="section-divider-diamond"></div>
@@ -19,7 +19,7 @@ export const AboutSection = () => {
         </div>
 
         <div className="about-grid-layout">
-          {/* Left Column: Narrative Card */}
+          {/* Left Column: Narrative Card & 3 Pillars */}
           <div className="about-card">
             <div className="about-quote-mark" aria-hidden="true">“</div>
             <p className="about-lead-text">
@@ -69,50 +69,104 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right Column: Visual Legal Heritage & Law God Showcase */}
+          {/* Right Column: Court Complex Card + Law & Business Creed Plaque */}
           <div className="about-visual-col">
+            {/* Card 1: Court Complex, Malalavadi, Mysuru */}
             <div className="about-emblem-card">
               <div className="emblem-card-media">
                 <img 
-                  src={advocateData.scalesImageUrl || "./images/scales-gavel-law.png"} 
-                  alt="Scales of Justice and Gavel on Law Books" 
+                  src={advocateData.courtPhotoUrl || "/images/mysore-district-court.jpg"} 
+                  alt="Court Complex, Malalavadi, Mysuru - District Court Mysore" 
                   className="emblem-img"
                   loading="lazy"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "./images/scales-gavel-law.jpg";
+                    e.target.src = "/images/scales-gavel-law.jpg";
                   }}
                 />
                 <div className="emblem-media-overlay" aria-hidden="true"></div>
                 <div className="emblem-media-badge">
-                  <Shield size={14} />
-                  <span>Emblem of Justice</span>
+                  <Landmark size={14} />
+                  <span>District Court Mysore</span>
                 </div>
               </div>
               <div className="emblem-card-content">
-                <h3 className="emblem-card-title">Steadfast Legal Representation</h3>
+                <h3 className="emblem-card-title">Court Complex, Malalavadi, Mysuru</h3>
                 <p className="emblem-card-motto">
-                  <em>"Fiat justitia ruat caelum"</em> — Let justice be done though the heavens fall.
+                  <em>"Justice, Equality & The Rule of Law — Defending Rights with Proven Experience."</em>
                 </p>
                 <div className="emblem-card-highlights">
                   <div className="emblem-highlight-item">
-                    <span className="emblem-dot">⚖️</span>
-                    <span>Truthful & transparent case evaluations</span>
+                    <span className="emblem-dot">🏛️</span>
+                    <span>Principal District & Sessions Court jurisdiction</span>
                   </div>
                   <div className="emblem-highlight-item">
-                    <span className="emblem-dot">🏛️</span>
-                    <span>District Court, Mysuru jurisdiction</span>
+                    <span className="emblem-dot">⚖️</span>
+                    <span>25+ Years continuous trial practice & advocacy</span>
                   </div>
                   <div className="emblem-highlight-item">
                     <span className="emblem-dot">📜</span>
                     <span>Authorized official notary chamber</span>
                   </div>
+                  <div className="emblem-highlight-item">
+                    <span className="emblem-dot">📍</span>
+                    <span>Civil, Criminal, Family & Property litigation</span>
+                  </div>
                 </div>
               </div>
             </div>
+
+            {/* Card 2: Simple & Strong Legal Motto Card */}
+            <div className="about-creed-card">
+              <div className="creed-card-header">
+                <div className="creed-badge">
+                  <Scale size={13} />
+                  <span>Legal Practice Motto</span>
+                </div>
+                <span className="creed-tag-latin">Truth • Justice • Client Trust</span>
+              </div>
+              
+              <p className="creed-slogan-main">
+                "Protecting Your Rights with Experience, Honesty & Dedicated Counsel."
+              </p>
+
+              <div className="creed-points-list">
+                <div className="creed-point">
+                  <span className="creed-icon">⚖️</span>
+                  <div>
+                    <strong>Strong & Fair Representation:</strong>
+                    <span> Standing firmly with clients to protect their legal rights in every court matter.</span>
+                  </div>
+                </div>
+
+                <div className="creed-point">
+                  <span className="creed-icon">📜</span>
+                  <div>
+                    <strong>Honest Legal Guidance:</strong>
+                    <span> Giving clear case evaluations, practical advice, and trustworthy solutions.</span>
+                  </div>
+                </div>
+
+                <div className="creed-point">
+                  <span className="creed-icon">🏛️</span>
+                  <div>
+                    <strong>Trusted Notary Chamber:</strong>
+                    <span> Providing fast, accurate affidavits, agreements, and official document attestations.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="creed-signoff">
+                <span className="creed-sign-name">Adv. Mallikarjunappa A S</span>
+                <span className="creed-sign-cred">B.Com, LL.B. • Advocate & Notary • 25+ Years Experience in Mysuru</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
   );
 };
+
+

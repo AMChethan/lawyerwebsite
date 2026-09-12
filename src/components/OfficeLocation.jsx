@@ -1,32 +1,64 @@
-import React, { useState } from 'react';
-import { MapPin, Clock, Navigation, Phone, Building, Calendar, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MapPin, Clock, Navigation, Phone, Building, Calendar, ExternalLink, MessageSquare, CheckCircle } from 'lucide-react';
 import { advocateData } from '../data/advocateData';
 
 export const OfficeLocation = () => {
-  const [isOpenNow] = useState(() => {
-    const now = new Date();
-    const day = now.getDay(); // 0 is Sunday
-    const hours = now.getHours() + now.getMinutes() / 60;
-    const isMorningSession = hours >= 9.5 && hours <= 10.5;
-    const isEveningSession = hours >= 18.0 && hours <= 21.0;
-    return day !== 0 && (isMorningSession || isEveningSession);
-  });
+  const [isOpenNow, setIsOpenNow] = useState(false);
+  const [sessionText, setSessionText] = useState('');
+
+  useEffect(() => {
+    const updateTiming = () => {
+      const now = new Date();
+      const day = now.getDay(); // 0 is Sunday
+      const hours = now.getHours() + now.getMinutes() / 60;
+
+      if (day === 0) {
+        setIsOpenNow(false);
+        setSessionText('Closed on Sunday (Available for urgent inquiries on WhatsApp)');
+        return;
+      }
+
+      const isMorning = hours >= 9.5 && hours <= 10.5;
+      const isEvening = hours >= 18.0 && hours <= 21.0;
+
+      if (isMorning) {
+        setIsOpenNow(true);
+        setSessionText('Morning Chamber Session Active (Open until 10:30 AM)');
+      } else if (isEvening) {
+        setIsOpenNow(true);
+        setSessionText('Evening Chamber Session Active (Open until 9:00 PM)');
+      } else if (hours > 10.5 && hours < 18.0) {
+        setIsOpenNow(false);
+        setSessionText('Court Advocacy Hours (Reopens for Chamber at 6:00 PM)');
+      } else if (hours < 9.5) {
+        setIsOpenNow(false);
+        setSessionText('Chamber Opens at 9:30 AM');
+      } else {
+        setIsOpenNow(false);
+        setSessionText('Chamber Closed for the Day (Reopens 9:30 AM Tomorrow)');
+      }
+    };
+
+    updateTiming();
+    const timer = setInterval(updateTiming, 60000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="office-section section-padding" id="office">
       <div className="container">
         <div className="section-header">
           <span className="section-tag">
-            <Building size={14} /> Visit The Chamber
+            <Building size={14} /> Chamber & Jurisdiction
           </span>
-          <h2 className="section-title">Office Location & Office Hours</h2>
+          <h2 className="section-title">Chamber Location & Office Hours</h2>
           <div className="section-divider">
             <div className="section-divider-line"></div>
             <div className="section-divider-diamond"></div>
             <div className="section-divider-line"></div>
           </div>
           <p className="section-subtitle">
-            Centrally located chamber in Saraswathipuram, Mysuru for consultations and legal documentation.
+            Conveniently situated at Vichila Complex, 1st Floor in Saraswathipuram, Mysuru for in-person legal consultation and official notarization.
           </p>
         </div>
 
@@ -38,10 +70,11 @@ export const OfficeLocation = () => {
                 <span className="office-type-pill">Advocate & Notary Chamber</span>
                 <span className={`status-pill ${isOpenNow ? 'status-open' : 'status-closed'}`}>
                   <span className="status-dot"></span>
-                  {isOpenNow ? 'Office Open Now' : 'Chamber Office Hours'}
+                  {isOpenNow ? 'Chamber Open Now' : 'Chamber Schedule'}
                 </span>
               </div>
-              <h3 className="office-chamber-title">Mysuru Legal Office</h3>
+              <h3 className="office-chamber-title">Vichila Complex Chamber</h3>
+              <p className="office-chamber-subtitle">{sessionText}</p>
             </div>
 
             <div className="office-info-list">
@@ -51,11 +84,11 @@ export const OfficeLocation = () => {
                   <MapPin size={22} className="text-gold" />
                 </div>
                 <div className="info-content-col">
-                  <strong className="info-heading">Chamber Address</strong>
-                  <p className="info-address-line">{advocateData.office.building}</p>
-                  <p className="info-address-line">{advocateData.office.street}</p>
-                  <p className="info-address-line">{advocateData.office.area}</p>
-                  <p className="info-address-line">{advocateData.office.city}, {advocateData.office.state} – {advocateData.office.pincode}</p>
+                  <strong className="info-heading">Full Chamber Address</strong>
+                  <p className="info-address-line primary-loc-name"><strong>Vichila Complex, 1st Floor</strong></p>
+                  <p className="info-address-line">New Kantharaj Urs Rd, K.G Koppal</p>
+                  <p className="info-address-line">Saraswathipuram, Mysuru, Karnataka – 570009</p>
+                  <span className="info-landmark-tag">Near Saraswathipuram / K.G Koppal Junction</span>
                 </div>
               </div>
 
@@ -65,11 +98,20 @@ export const OfficeLocation = () => {
                   <Clock size={22} className="text-gold" />
                 </div>
                 <div className="info-content-col">
-                  <strong className="info-heading">Office Hours</strong>
-                  <p className="info-hours-text">{advocateData.office.officeHours}</p>
+                  <strong className="info-heading">Chamber Consultation Timings</strong>
+                  <div className="timing-slots-grid">
+                    <div className="timing-slot-badge">
+                      <span className="slot-title">Morning Session</span>
+                      <strong className="slot-time">9:30 AM – 10:30 AM</strong>
+                    </div>
+                    <div className="timing-slot-badge">
+                      <span className="slot-title">Evening Session</span>
+                      <strong className="slot-time">6:00 PM – 9:00 PM</strong>
+                    </div>
+                  </div>
                   <p className="info-days-text">
                     <Calendar size={13} style={{ display: 'inline', marginRight: '4px' }} />
-                    {advocateData.office.workingDays} (Morning: 9:30–10:30 AM | Evening: 6:00–9:00 PM)
+                    {advocateData.office.workingDays} (Court hours during mid-day)
                   </p>
                 </div>
               </div>
@@ -85,8 +127,8 @@ export const OfficeLocation = () => {
                 id="office-get-directions-btn"
               >
                 <Navigation size={18} />
-                <span>GET DIRECTIONS</span>
-                <ExternalLink size={14} style={{ opacity: 0.7 }} />
+                <span>OPEN IN GOOGLE MAPS</span>
+                <ExternalLink size={14} style={{ opacity: 0.8 }} />
               </a>
 
               <a 
@@ -95,7 +137,18 @@ export const OfficeLocation = () => {
                 id="office-call-btn"
               >
                 <Phone size={18} />
-                <span>CALL OFFICE</span>
+                <span>CALL 9980051736</span>
+              </a>
+
+              <a 
+                href={advocateData.whatsapp[0].url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-whatsapp-card"
+                id="office-whatsapp-btn"
+              >
+                <MessageSquare size={18} />
+                <span>WHATSAPP</span>
               </a>
             </div>
           </div>
@@ -104,19 +157,26 @@ export const OfficeLocation = () => {
           <div className="office-map-wrapper">
             <div className="map-frame">
               <iframe
-                title="Office Location Map - Saraswathipuram Mysuru"
+                title="Vichila Complex 1st Floor Saraswathipuram Mysuru"
                 src="https://maps.google.com/maps?q=Vichila+Complex,+New+Kantharaj+Urs+Rd,+K.G.+Koppal,+Saraswathipuram,+Mysuru,+Karnataka+570009&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: '340px' }}
+                style={{ border: 0, minHeight: '360px' }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
               <div className="map-overlay-badge">
                 <MapPin size={16} className="text-gold" />
-                <span>Vichila Complex, Saraswathipuram</span>
+                <span>Vichila Complex, 1st Floor, Saraswathipuram</span>
               </div>
+            </div>
+
+            <div className="map-caption-bar">
+              <span className="map-caption-text">
+                <CheckCircle size={14} className="text-gold" />
+                Google Maps Link: <a href={advocateData.office.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="map-link-inline">share.google/9mvl5e0fbC6MDRZmW</a>
+              </span>
             </div>
           </div>
         </div>
