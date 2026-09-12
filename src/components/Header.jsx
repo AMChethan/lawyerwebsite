@@ -81,7 +81,7 @@ export const Header = ({ onOpenQR }) => {
             <button 
               type="button" 
               onClick={onOpenQR} 
-              className="qr-btn" 
+              className="qr-btn hide-on-mobile" 
               title="View QR Visiting Card & Share"
               aria-label="View QR Code"
             >
@@ -93,17 +93,17 @@ export const Header = ({ onOpenQR }) => {
               href={advocateData.whatsapp[0].url} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="header-whatsapp-btn"
+              className="header-whatsapp-btn hide-on-mobile"
               title="Chat on WhatsApp"
               aria-label="Chat on WhatsApp"
             >
               <MessageSquare size={16} />
-              <span className="hide-on-mobile">WhatsApp</span>
+              <span>WhatsApp</span>
             </a>
 
             <a 
               href={advocateData.phones.primaryTel} 
-              className="header-call-btn"
+              className="header-call-btn hide-on-mobile"
               aria-label={`Call ${advocateData.phones.primaryFormatted}`}
             >
               <Phone size={15} />
@@ -118,7 +118,7 @@ export const Header = ({ onOpenQR }) => {
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
