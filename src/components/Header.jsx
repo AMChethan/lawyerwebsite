@@ -29,21 +29,16 @@ export const Header = ({ onOpenQR }) => {
         <div className="container top-bar-container">
           <div className="top-bar-left">
             <span className="top-bar-item">
-              <MapPin size={12} className="text-gold" />
+              <Scale size={13} className="text-gold" />
               <span>Advocate & Notary • District Court Mysore</span>
             </span>
           </div>
 
           <div className="top-bar-right">
             <span className="top-bar-item">
-              <Clock size={12} className="text-gold" />
-              <span>Chamber: <strong>9:30–10:30 AM</strong> & <strong>6:00–9:00 PM</strong></span>
+              <Clock size={13} className="text-gold" />
+              <span>Chamber Hours: <strong>9:30–10:30 AM</strong> & <strong>6:00–9:00 PM</strong> (Mon–Sat)</span>
             </span>
-            <span className="top-bar-separator">|</span>
-            <a href={advocateData.phones.primaryTel} className="top-bar-phone">
-              <Phone size={12} className="text-gold" />
-              <span>+91 99800 51736</span>
-            </a>
           </div>
         </div>
       </div>
@@ -57,8 +52,8 @@ export const Header = ({ onOpenQR }) => {
               <Scale className="brand-scale-icon" size={20} strokeWidth={2.2} />
             </div>
             <div className="brand-text">
-              <span className="brand-name">{advocateData.displayName}</span>
-              <span className="brand-title">{advocateData.profession} • 25+ Yrs Exp</span>
+              <span className="brand-name">ADV. MALLIKARJUNAPPA A S</span>
+              <span className="brand-title">Advocate & Notary • 25+ Years Experience</span>
             </div>
           </a>
 
@@ -71,14 +66,14 @@ export const Header = ({ onOpenQR }) => {
             ))}
           </nav>
 
-          {/* Header Action Buttons (Neat & Refined) */}
+          {/* Header Action Buttons (Neat, Elegant & Refined) */}
           <div className="header-actions">
             <button 
               type="button" 
               onClick={onOpenQR} 
               className="qr-btn hide-on-mobile" 
-              title="View QR Visiting Card"
-              aria-label="View QR Code"
+              title="View Digital QR Card"
+              aria-label="View QR Card"
             >
               <QrCode size={15} />
               <span>QR Card</span>
@@ -98,10 +93,10 @@ export const Header = ({ onOpenQR }) => {
               type="button" 
               className="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
@@ -112,7 +107,7 @@ export const Header = ({ onOpenQR }) => {
             <div className="container mobile-nav-container">
               <div className="mobile-hours-badge">
                 <Clock size={14} className="text-gold" />
-                <span>Hours: 9:30–10:30 AM & 6:00–9:00 PM (Mon–Sat)</span>
+                <span>Chamber: 9:30–10:30 AM & 6:00–9:00 PM (Mon–Sat)</span>
               </div>
 
               <div className="mobile-nav-links-list">
