@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, UserCheck, CheckCircle2, QrCode, MapPin, Clock, ArrowUpRight, Send, Check } from 'lucide-react';
+import { Phone, MessageSquare, UserCheck, CheckCircle2, QrCode, MapPin, Clock, ArrowUpRight, Send, Check, ShieldCheck, FileText } from 'lucide-react';
 import { advocateData } from '../data/advocateData';
 import { downloadVCard } from '../utils/vcard';
 
@@ -24,7 +24,7 @@ export const ContactSection = ({ onOpenQR }) => {
     const namePart = consultName.trim() ? `My name is ${consultName.trim()}. ` : '';
     const notePart = consultNote.trim() ? ` Brief note: "${consultNote.trim()}".` : '';
     const message = encodeURIComponent(
-      `Hello Adv. Mallikarjunappa, ${namePart}I would like to schedule a consultation regarding: [${consultType}].${notePart} Please let me know the suitable time at your Vichila Complex chamber or over phone.`
+      `Hello Adv. Mallikarjunappa, ${namePart}I would like to schedule a consultation regarding: [${consultType}].${notePart} Please let me know your available time at your Vichila Complex chamber or over phone.`
     );
     window.open(`https://wa.me/919980051736?text=${message}`, '_blank');
   };
@@ -32,6 +32,7 @@ export const ContactSection = ({ onOpenQR }) => {
   return (
     <section className="contact-section section-padding" id="contact">
       <div className="container">
+        {/* Section Header */}
         <div className="section-header">
           <span className="section-tag">
             <Phone size={14} /> Direct Accessibility
@@ -53,14 +54,14 @@ export const ContactSection = ({ onOpenQR }) => {
           <div className="contact-card contact-card-primary">
             <div className="contact-card-header">
               <div className="contact-icon-pill">
-                <Phone size={22} />
+                <Phone size={20} />
               </div>
               <span className="contact-type-label">Primary Chamber Line</span>
             </div>
 
             <div className="contact-card-body">
               <h3 className="contact-number-display">{advocateData.phones.primaryFormatted}</h3>
-              <p className="contact-card-sub">Chamber hours: 9:30–10:30 AM & 6:00–9:00 PM</p>
+              <p className="contact-card-sub">Chamber hours: 9:30–10:30 AM & 6:00–9:00 PM (Mon–Sat)</p>
             </div>
 
             <div className="contact-card-footer">
@@ -69,9 +70,9 @@ export const ContactSection = ({ onOpenQR }) => {
                 className="btn btn-primary contact-action-btn"
                 id="contact-call-primary-btn"
               >
-                <Phone size={18} />
-                <span>CALL 9980051736</span>
-                <ArrowUpRight size={16} />
+                <Phone size={16} />
+                <span>Call: 99800 51736</span>
+                <ArrowUpRight size={15} />
               </a>
             </div>
           </div>
@@ -80,7 +81,7 @@ export const ContactSection = ({ onOpenQR }) => {
           <div className="contact-card contact-card-secondary-phone">
             <div className="contact-card-header">
               <div className="contact-icon-pill secondary-pill">
-                <Phone size={22} />
+                <Phone size={20} />
               </div>
               <span className="contact-type-label">Direct Alternate Line</span>
             </div>
@@ -96,18 +97,18 @@ export const ContactSection = ({ onOpenQR }) => {
                 className="btn btn-secondary-call contact-action-btn"
                 id="contact-call-secondary-btn"
               >
-                <Phone size={18} />
-                <span>CALL 8073542848</span>
-                <ArrowUpRight size={16} />
+                <Phone size={16} />
+                <span>Call: 80735 42848</span>
+                <ArrowUpRight size={15} />
               </a>
             </div>
           </div>
 
-          {/* WhatsApp Direct Messaging Cards */}
+          {/* WhatsApp Direct Messaging Card */}
           <div className="contact-card contact-card-whatsapp">
             <div className="contact-card-header">
               <div className="contact-icon-pill whatsapp-pill">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                   <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.274.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824zM12.012 2.002C6.48 2.002 2 6.48 2 12.012c0 1.954.563 3.778 1.543 5.323L2 22l4.823-1.492c1.488.905 3.228 1.433 5.093 1.433 5.531 0 10.012-4.48 10.012-10.012 0-5.532-4.481-10.012-10.012-10.012z"/>
                 </svg>
               </div>
@@ -125,11 +126,11 @@ export const ContactSection = ({ onOpenQR }) => {
                     href={wa.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="btn btn-whatsapp-sm"
+                    className="btn btn-whatsapp-sm wa-action-btn"
                     id={`contact-whatsapp-${idx+1}-btn`}
                     aria-label={`Open WhatsApp chat with ${wa.number}`}
                   >
-                    <span>Message</span>
+                    <span>Chat on WhatsApp</span>
                     <ArrowUpRight size={14} />
                   </a>
                 </div>
@@ -141,15 +142,22 @@ export const ContactSection = ({ onOpenQR }) => {
         {/* Interactive Fast WhatsApp Consultation Form */}
         <div className="fast-consult-box">
           <div className="consult-header">
-            <h3 className="consult-title">Instant WhatsApp Consultation Request</h3>
+            <div className="consult-badge">
+              <MessageSquare size={13} />
+              <span>Direct WhatsApp Inquiry</span>
+            </div>
+            <h3 className="consult-title">Instant WhatsApp Consultation</h3>
             <p className="consult-desc">
-              Select your matter category to send a structured inquiry directly to Adv. Mallikarjunappa's WhatsApp.
+              Select your legal matter to send an immediate inquiry directly to Adv. Mallikarjunappa's WhatsApp.
             </p>
           </div>
 
           <form onSubmit={handleWhatsAppConsultation} className="consult-form-grid">
             <div className="form-group">
-              <label htmlFor="consult-type-select" className="form-label">Matter / Service Type</label>
+              <label htmlFor="consult-type-select" className="form-label">
+                <FileText size={14} className="text-gold" />
+                <span>Matter / Service Type</span>
+              </label>
               <select 
                 id="consult-type-select" 
                 value={consultType} 
@@ -169,7 +177,10 @@ export const ContactSection = ({ onOpenQR }) => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="consult-name-input" className="form-label">Your Name (Optional)</label>
+              <label htmlFor="consult-name-input" className="form-label">
+                <UserCheck size={14} className="text-gold" />
+                <span>Your Full Name (Optional)</span>
+              </label>
               <input 
                 type="text" 
                 id="consult-name-input" 
@@ -181,15 +192,18 @@ export const ContactSection = ({ onOpenQR }) => {
             </div>
 
             <div className="form-group form-group-full">
-              <label htmlFor="consult-note-input" className="form-label">Brief Note / Question (Optional)</label>
-              <input 
-                type="text" 
+              <label htmlFor="consult-note-input" className="form-label">
+                <MessageSquare size={14} className="text-gold" />
+                <span>Brief Note / Query (Optional)</span>
+              </label>
+              <textarea 
                 id="consult-note-input" 
                 value={consultNote} 
                 onChange={(e) => setConsultNote(e.target.value)} 
-                placeholder="e.g., Need consultation on property dispute / affidavit attestation" 
-                className="form-input"
-              />
+                placeholder="Briefly describe your legal query, property dispute, or notary requirement..." 
+                className="form-input form-textarea"
+                rows={3}
+              ></textarea>
             </div>
 
             <div className="form-group form-group-full">
@@ -199,8 +213,12 @@ export const ContactSection = ({ onOpenQR }) => {
                 id="submit-whatsapp-consult-btn"
               >
                 <Send size={18} />
-                <span>SEND INQUIRY VIA WHATSAPP (9980051736)</span>
+                <span>Send WhatsApp Consultation Request</span>
               </button>
+              <p className="consult-submit-note">
+                <ShieldCheck size={14} className="text-success" />
+                <span>Directly connects to Adv. Mallikarjunappa on WhatsApp (+91 99800 51736)</span>
+              </p>
             </div>
           </form>
         </div>
@@ -210,7 +228,7 @@ export const ContactSection = ({ onOpenQR }) => {
           <div className="save-strip-info">
             <h3 className="save-strip-title">Save Digital Visiting Card to Phone</h3>
             <p className="save-strip-desc">
-              Download the official contact card (.vcf) with both phone numbers, chamber address & professional credentials.
+              Download the official contact card (.vcf) with phone numbers, chamber address & professional credentials.
             </p>
           </div>
 
@@ -223,13 +241,13 @@ export const ContactSection = ({ onOpenQR }) => {
             >
               {vcardDownloaded ? (
                 <>
-                  <CheckCircle2 size={20} className="text-success" />
+                  <CheckCircle2 size={18} className="text-success" />
                   <span>Contact Card Saved (.vcf)</span>
                 </>
               ) : (
                 <>
-                  <UserCheck size={20} />
-                  <span>SAVE CONTACT (.VCF)</span>
+                  <UserCheck size={18} />
+                  <span>Save Contact Card (.VCF)</span>
                 </>
               )}
             </button>
@@ -240,7 +258,7 @@ export const ContactSection = ({ onOpenQR }) => {
               className="btn btn-qr-share"
               id="show-qr-code-btn"
             >
-              <QrCode size={20} />
+              <QrCode size={18} />
               <span>Show QR Visiting Card</span>
             </button>
           </div>
